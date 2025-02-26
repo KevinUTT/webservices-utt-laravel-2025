@@ -1,0 +1,11 @@
+@import url(/css/bootstrap.css);
+@import url(/css/loader.css);
+@import url(/css/notification.css);
+
+:root {
+    --palette-black: #0A0908;
+    --palette-metal: #22333B;
+    --palette-almond: #EAE0D5;
+    --palette-khaki: #C6AC8F;
+    --palette-brown: #5E503F;
+}
