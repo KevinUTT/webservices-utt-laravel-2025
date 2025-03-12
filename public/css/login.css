@@ -1,0 +1,6 @@
+@import url(main.css);
+
+.login-box {
+    display: inline-block;
+    width: 50%;
+}

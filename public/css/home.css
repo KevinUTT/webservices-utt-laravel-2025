@@ -1,0 +1,14 @@
+@import url(main.css);
+
+.alert-purple {
+    background-color: rgba(94, 19, 94, 0.872);
+    color: var(--palette-almond);
+}
+
+.alert-purple > a:visited {
+    color: var(--palette-almond);
+}
+
+.alert-purple > a:link {
+    color: var(--palette-khaki);
+}
