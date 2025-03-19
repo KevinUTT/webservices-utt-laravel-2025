@@ -1,0 +1,30 @@
+@import url(main.css);
+
+.show-modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #42424224;
+    z-index: 111;
+}
+
+.new-book-form {
+    width: 75%;
+    height: 90%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: var(--palette-almond);
+    padding: 1rem;
+    box-shadow: 0 0 3rem 0 solid black;
+}
+
+.new-book-ai {
+    width: 100%;
+    height: auto;
+    background-color: var(--palette-metal);
+    color: var(--palette-almond);
+}

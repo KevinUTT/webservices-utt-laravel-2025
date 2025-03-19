@@ -7,6 +7,11 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/books', function () {
+    return view('books');
+});
+
+
 Route::get('/login', function () {
     return view('login');
 });
