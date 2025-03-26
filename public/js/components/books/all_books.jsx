@@ -3,10 +3,18 @@ let libros_loaded = false;
 function AllBooks({setShowLoader}) {
 
     async function getAllBooks() {
+        setShowLoader(true);
         return await axios.get('http://localhost:2025/libros/all');
     }
 
+    async function eliminarLibro(ISBN) {
+        setShowLoader(true);
+        await axios.delete(`http://localhost:2025/libros/${ISBN}`);
+        setShowLoader(false);
+    }
+
     async function newAIBook() {
+        setShowLoader(true);
         return await axios.post('http://localhost:2025/libros/ai/new', {});
     }
 
@@ -25,9 +33,30 @@ function AllBooks({setShowLoader}) {
     for(let i = 0; i < allBooks.length; i++) {
         const book = allBooks[i];
         books_html.push(
-        <li key={Math.random()} className="list-group-item d-flex justify-content-between align-items-start">
-            <div className="ms-2 me-auto">
-            <div className="fw-bold">{book.title}</div>
+        <li key={Math.random()} 
+            className="book-item list-group-item d-flex justify-content-between align-items-start">
+            <div className="book-buttons h-100 me-2">
+                <div className="book-button">
+                    <span onClick={async () => {
+                            await eliminarLibro(book.ISBN);
+                            let libros = await getAllBooks();
+                            setAllBooks(libros.data);
+                            setShowLoader(false);
+                        }} 
+                        class="material-symbols-outlined">
+                        delete
+                    </span>
+                    <span
+                        onClick={async () => {
+                            
+                        }} 
+                        class="material-symbols-outlined">
+                        add
+                    </span>
+                </div>
+            </div>
+            <div className="me-auto">
+                <div className="fw-bold">{book.title}</div>
                 {book.name} {book.lastName} {book.secondLastName} - {book.year}
             </div>
             <span className="badge text-bg-primary rounded-pill">
@@ -44,7 +73,6 @@ function AllBooks({setShowLoader}) {
                 <div className="col h-100 text-center">
                     <form className="new-book-form d-inline-block" onSubmit={async () => {
                         event.preventDefault();
-                        setShowLoader(true);
                         let libro = await newAIBook();
                         setNewBook(libro.data);
                         setShowLoader(false);

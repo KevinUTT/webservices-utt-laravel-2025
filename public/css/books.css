@@ -28,3 +28,18 @@
     background-color: var(--palette-metal);
     color: var(--palette-almond);
 }
+
+.book-buttons {
+    display: none;
+}
+
+.book-item:hover .book-buttons {
+    display: block;
+    background-color: var(--palette-brown);
+    color: var(--palette-almond);
+    cursor: default;
+}
+
+.book-button span:hover {
+    opacity: 0.75;
+}
