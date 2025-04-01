@@ -7,6 +7,10 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/paypal', function () {
+    return view('paypal');
+});
+
 Route::get('/books', function () {
     return view('books');
 });
